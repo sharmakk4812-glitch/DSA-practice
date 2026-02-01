@@ -1,0 +1,34 @@
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int mnr = 0 , mxr = matrix.size() -1 , mnc = 0 , mxc = matrix[0].size() -1;
+        int count = 0 ;
+        vector<int> ans;
+        int total = (mxr+1)*(mxc+1);
+        while(count < total){
+        if(mnr <= mxr){
+            for(int i = mnc ; i<=mxc ; i++){
+                ans.push_back(matrix[mnr][i]);
+                count++;
+            }mnr++;}
+            if(mnc <= mxc) {
+            for(int i = mnr ; i<=mxr ; i++){
+                ans.push_back(matrix[i][mxc]);
+                count++;
+                }mxc--;}
+        if(mnr <= mxr){
+            for(int i = mxc ; i>=mnc ; i--){
+                ans.push_back(matrix[mxr][i]);
+                count++;
+                }mxr--;}
+                if(mnc <= mxc) {
+            for(int i =mxr ; i>=mnr ; i--){
+                ans.push_back(matrix[i][mnc]);
+                count++;
+            }mnc++;}
+
+        }
+        return ans;
+        
+    }
+};
